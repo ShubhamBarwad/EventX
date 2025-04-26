@@ -63,6 +63,31 @@ EventManager.AddEventListener("eventName", (args) =>
 }, IsOnce: true);
 ```
 
+## Dependency Injection (DI) Support
+**EventX** also supports Dependency Injection (DI) and provides a fluent builder pattern to register initial event listeners.
+
+You can easily set it up with .NET's built-in DI system using Host.CreateDefaultBuilder:
+
+```C#
+using EventX.Core;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+var host = Host.CreateDefaultBuilder(args)
+    .ConfigureServices((context, services) =>
+    {
+        services.AddEventManager(builder =>
+        {
+            builder
+                .AddListener("myevent:customevent1", args => Console.WriteLine("Dispatched customevent1"))
+                .AddListener("myevent:customevent2", args => Console.WriteLine("Dispatched customevent2"));
+        });
+        services.AddScoped<MyCustomService>();
+    })
+    .Build();
+```
+This allows you to **pre-register** event listeners at application startup, making it easier to maintain and extend your event-driven architecture.
+
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
