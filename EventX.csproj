@@ -5,11 +5,23 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Title>EventX</Title>
+    <Title>$(AssemblyName)</Title>
+    <Authors>Shubham Barwad</Authors>
+    <RepositoryUrl>https://github.com/ShubhamBarwad/EventX</RepositoryUrl>
+    <PackageTags>event;eventmanager;manager;eventlistener;addeventlistener;event-management;event-system;pub-sub;messaging;asynchronous;observer-pattern;event-dispatcher;task-based;dotnet;library;csharp;async;distributed;callback;microservices;scalable;reliable;event-listener;event-publisher;dotnet-core;dotnet-standard;notification;queue;callback;event-bus</PackageTags>
+	<Version>1.0.2</Version>
+	<PackageReadmeFile>Readme.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
